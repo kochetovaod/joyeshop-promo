@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             padding: 20px;
         }
         h1 {
@@ -22,20 +22,33 @@
           list-style-type:  none;
         }
 
-        @media (max-width: 600px) {
+       /* Изображение для мобильных устройств в вертикальной ориентации */
+        @media (max-width: 600px) and (orientation: portrait) {
             .promotion-image {
-                content: url('/joyeshop-promo/vertical.png'); /* Изображение для маленьких экранов */
+                content: url('/joyeshop-promo/vertical.png');
             }
         }
+
+        /* Изображение для мобильных устройств в горизонтальной ориентации */
+        @media (max-width: 600px) and (orientation: landscape) {
+            .promotion-image {
+                content: url('/joyeshop-promo/horizontal.png');
+            }
+        }
+
+        /* Изображение для планшетов и небольших экранов */
         @media (min-width: 601px) and (max-width: 1200px) {
             .promotion-image {
-                content: url('/joyeshop-promo/horizontal.png'); /* Изображение для средних экранов */
+                content: url('/joyeshop-promo/horizontal.png');
             }
         }
+
+        /* Изображение для больших экранов */
         @media (min-width: 1201px) {
             .promotion-image {
-                content: url('/joyeshop-promo/square.png'); /* Изображение для больших экранов */
+                content: url('/joyeshop-promo/square.png');
             }
+        }
         }
     </style>
 </head>
