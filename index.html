@@ -86,6 +86,26 @@
         <li>🧪 Lost Mary MO5000 (M)</li>
         <li>🧪 HQD Miracle 8000 (M)</li>
     </ul>
+<script>
+        // Функция для получения GET параметров
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
+        // Получаем значение utm_city
+        const utmCity = getQueryParam('utm_city');
+
+        // Если параметр существует, отправляем запрос на сервер для увеличения счетчика
+        if (utmCity) {
+            fetch('/joyeshop-promo/update_statistics.php?utm_city=' + encodeURIComponent(utmCity))
+                .then(response => {
+                    if (!response.ok) {
+                        console.error('Ошибка при обновлении статистики:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Ошибка сети:', error));
+        }
+    </script>
 </body>
 </html>
